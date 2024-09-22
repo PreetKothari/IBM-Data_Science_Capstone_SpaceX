@@ -18,7 +18,7 @@ Classification accuracy - the number of correct predictions divided by the total
 
 $$Accuracy = \frac{TP+TN}{TP+FP+TN+FN}$$
 
-![Confusion matrix](https://github.com/chuksoo/IBM-Data-Science-Capstone-SpaceX/blob/main/Plots/Confusion%20matrix.PNG)
+![Confusion matrix](https://github.com/PreetKothari/IBM-Data_Science_Capstone_SpaceX/blob/08aaa3486a614d2d7915450f3f953f343e70e9e6/Plots/Confusion%20matrix.PNG)
 
 ## Deliverables
 - Accurate predictive algorithms
