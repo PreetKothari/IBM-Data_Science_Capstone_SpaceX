@@ -40,7 +40,20 @@ app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
                                 # TASK 3: Add a slider to select payload range
                                 dcc.RangeSlider(id='payload-slider',
                                                 min=0, max=10000, step=1000,
-                                                marks={0: '0', 2500: '2500', 5000: '5000', 7500: '7500', 10000: '10000'},
+                                                marks={0: '0', 
+                                                       marks = {
+                                                               0: '0 kg',
+                                                               1000: '1000 kg',
+                                                               2000: '2000 kg',
+                                                               3000: '3000 kg',
+                                                               4000: '4000 kg',
+                                                               5000: '5000 kg',
+                                                               6000: '6000 kg',
+                                                               7000: '7000 kg',
+                                                               8000: '8000 kg',
+                                                               9000: '9000 kg',
+                                                               10000: '10000 kg'
+                                                       },
                                                 value=[min_payload, max_payload]),
 
                                 # TASK 4: Add a scatter chart to show the correlation between payload and launch success
@@ -74,13 +87,13 @@ def get_scatter_chart(entered_site, payload):
     filtered_df = spacex_df[spacex_df['Payload Mass (kg)'].between(payload[0], payload[1])]
     if entered_site == 'ALL':
         fig = px.scatter(filtered_df, x='Payload Mass (kg)', y='class', color='Booster Version Category',
-                         size='Payload Mass (kg)', title='Success count on Payload mass for all sites')
+                         size='Payload Mass (kg)', title='Mission Outcome by Payload mass for all sites')
         return fig
     else:
         # Filter dataframe by selected site and payload range
         site_df = filtered_df[filtered_df['Launch Site'] == entered_site]
         fig = px.scatter(site_df, x='Payload Mass (kg)', y='class', color='Booster Version Category',
-                         size='Payload Mass (kg)', title=f"Success count on Payload mass for site {entered_site}")
+                         size='Payload Mass (kg)', title=f"Mission Outcome by Payload mass for site {entered_site}")
         return fig
 
 # Run the app
